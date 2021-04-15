@@ -1,5 +1,7 @@
 # Vend-Customer-To-Shopify-Identifier
 
+This program identifies which customers from Vend are not in Shopify store customers database.
+
 The identification process starts by extracting the first name and last name of a customer from Vend data source and see if the combination exists in a Shopify customer record. 
 
 If a Vend customer does not exist in Shopify customers database, we add the entire customer info json object into an array, which will be returned at the end of execution for identification process.
