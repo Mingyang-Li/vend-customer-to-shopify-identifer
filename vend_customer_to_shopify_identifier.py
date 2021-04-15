@@ -97,7 +97,7 @@ class Vend_Customer_To_Shopify_Identifier:
         vend_file.close()
 
         # Open a blank csv
-        with open(self.__difference_filename, 'w', newline='') as file_to_write:
+        with open(self.__difference_filename, 'w') as file_to_write:
             field_names = [k for k in allCustomers[0].keys()]
 
             writer = csv.DictWriter(file_to_write, fieldnames=field_names)
@@ -111,8 +111,11 @@ class Vend_Customer_To_Shopify_Identifier:
                     row = {}
                     for key in customer:
                         row[key] = customer[key]
-                    print(row)
-                    writer.writerow(row)
+                    # print(row)
+                    try:
+                        writer.writerow(row)
+                    except Exception as e:
+                        print(e)
         file_to_write.close()
         print("Done")
             
